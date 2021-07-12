@@ -26,7 +26,7 @@ public class PhoneController extends HttpServlet {
 		
 		switch(action) {
 		case "list":
-		{
+		{//변수명의 중복을 막기위해 지역변수로 만들 목적으로 case에 중괄호 사용
 			//리스트 가져오기
 			List<PersonVo> personList = phoneDao.getList();
 			
