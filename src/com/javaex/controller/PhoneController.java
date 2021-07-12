@@ -56,7 +56,7 @@ public class PhoneController extends HttpServlet {
 			
 			//vo로 묶어준다
 			PersonVo personInsert = new PersonVo(name, hp, company);
-			System.out.println(personInsert);
+//			System.out.println(personInsert);	Vo 확인용 출력
 			
 			//dao --> 저장
 			phoneDao.insert(personInsert);
