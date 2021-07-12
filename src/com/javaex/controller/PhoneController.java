@@ -83,7 +83,7 @@ public class PhoneController extends HttpServlet {
 		{
 			//list의 수정 버튼으로 personId 값을 받아서 옮긴다
 			int personId = Integer.parseInt(request.getParameter("personId"));
-//			System.out.println(personId + "case:updateForm");
+//			System.out.println(personId + "case:updateForm");	personId가 전송되지 않는 에러 발생, 확인용 출력 --> 해결
 			
 			//updateForm으로 포워드
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");

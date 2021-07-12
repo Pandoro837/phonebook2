@@ -37,8 +37,8 @@
 				<td>
 					<form action="/phonebook2/pbc" method = "get">
 						<input type = "hidden" name = "action" value = "updateForm">
-						<input type = "hidden" name = "personId" value = "<%= personInfo.getPersonId() %>">
-						<% System.out.println(personInfo.getPersonId() + "list"); %>
+						<input type = "hidden" name = "personId" value = "<%= personInfo.getPersonId() %>">	<!--해당 정보만 수정할 수 있도록 personId를 hidden 타입으로 전달-->
+						<%-- <% System.out.println(personInfo.getPersonId() + "list"); %> --%> <!-- personId가 전송되지 않는 에러 발생, 확인용 출력 -> 해결  -->
 						<button type = "submit">
 							수정
 						</button>
@@ -47,7 +47,7 @@
 				<td>
 					<form action="/phonebook2/pbc" method = "get">
 						<input type = "hidden" name = "action" value = "delete">
-						<input type = "hidden" name = "personId" value = "<%= personInfo.getPersonId() %>">
+						<input type = "hidden" name = "personId" value = "<%= personInfo.getPersonId() %>"> <!--해당 정보만 삭제할 수 있도록 personId를 hidden 타입으로 전달-->
 						<button type = "submit">
 							삭제
 						</button>
