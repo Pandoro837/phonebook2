@@ -2,11 +2,9 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import="java.util.List" %>
-<%@ page import="com.javaex.dao.PhoneDao" %>
 <%@ page import="com.javaex.vo.PersonVo" %>
     
 <%
-	PhoneDao phoneDao = new PhoneDao();
 	List<PersonVo> personList =	(List<PersonVo>)request.getAttribute("pList"); //어트리뷰트의 자료형을 알 수 없으므로, 형변환을 통해 지정해준다
 %>    
 <!DOCTYPE html>
