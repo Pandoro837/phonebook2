@@ -3,7 +3,6 @@ package com.javaex.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaex.dao.PhoneDao;
+import com.javaex.util.WebUtil;
 import com.javaex.vo.PersonVo;
 
 @WebServlet("/pbc") //url에 들어갈 주소 값 ~.jsp 자리에 들어가면 서블렛으로 연결된다
@@ -34,16 +34,18 @@ public class PhoneController extends HttpServlet {
 				request.setAttribute("pList", personList);
 				
 				//html로 표현 --> jsp로 포워드한다
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp"); //해당 주소에서 일을 대신하게 한다(위치를 정확하게 입력해야한다)
-				rd.forward(request, response);	//리퀘스트와 리스폰스를 rd의 주소로 넘겨준다
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp"); //해당 주소에서 일을 대신하게 한다(위치를 정확하게 입력해야한다)
+//				rd.forward(request, response);	//리퀘스트와 리스폰스를 rd의 주소로 넘겨준다
+				String path = "/WEB-INF/list.jsp";
+				WebUtil.forword(request, response, path);
 			}	
 				break;
 			
 			case "insertForm":
 			{
 				//insertForm으로 포워드
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/insertForm.jsp");
-				rd.forward(request, response);
+				String path = "/WEB-INF/insertForm.jsp";
+				WebUtil.forword(request, response, path);
 			}	
 				break;
 			
@@ -62,7 +64,8 @@ public class PhoneController extends HttpServlet {
 				phoneDao.insert(personInsert);
 				
 				//리다이렉트
-				response.sendRedirect("/phonebook2/pbc?action=list");
+				String url = "/phonebook2/pbc?action=list";
+				WebUtil.redirect(request, response, url);
 			}
 				break;
 				
@@ -75,7 +78,8 @@ public class PhoneController extends HttpServlet {
 				phoneDao.delete(personId);
 				
 				//리다이렉트
-				response.sendRedirect("/phonebook2/pbc?action=list");
+				String url = "/phonebook2/pbc?action=list";
+				WebUtil.redirect(request, response, url);
 			}	
 				break;
 				
@@ -92,8 +96,8 @@ public class PhoneController extends HttpServlet {
 				request.setAttribute("personInfo", personInfo);
 				
 				//updateForm으로 포워드
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");
-				rd.forward(request, response);
+				String path = "/WEB-INF/updateForm.jsp";
+				WebUtil.forword(request, response, path);
 			}
 				break;
 				
@@ -112,7 +116,8 @@ public class PhoneController extends HttpServlet {
 				phoneDao.update(personUpdate);
 				
 				//리다이렉트
-				response.sendRedirect("/phonebook2/pbc?action=list");
+				String url = "/phonebook2/pbc?action=list";
+				WebUtil.redirect(request, response, url);
 			}	
 			break;
 		}
