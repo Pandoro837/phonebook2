@@ -5,13 +5,8 @@
 <%@ page import="java.util.List" %>    
     
 <% 
-	//getAttribute로 forward와 함께 넘어온 personId를 받는다
-	int personId = (int)request.getAttribute("personId");
-//	System.out.println(personId + "updateForm.jsp"); personId가 전송되지 않는 에러 발생, 확인용 출력 --> 해결
-	
-	//id 값으로 해당하는 personVo 호출
-	PhoneDao phoneDao = new PhoneDao();
-	PersonVo personInfo = phoneDao.getPerson(personId);
+	//getAttribute로 forward와 함께 넘어온 personInfo를 받는다
+	PersonVo personInfo = (PersonVo)request.getAttribute("personInfo");
 %>    
     
 <!DOCTYPE html>

@@ -85,9 +85,14 @@ public class PhoneController extends HttpServlet {
 				int personId = Integer.parseInt(request.getParameter("personId"));
 	//			System.out.println(personId + "case:updateForm");	personId가 전송되지 않는 에러 발생, 확인용 출력 --> 해결
 				
+				//personId를 통한 호출
+				PersonVo personInfo = phoneDao.getPerson(personId);
+				
+				//setAttribute로 값 저장
+				request.setAttribute("personInfo", personInfo);
+				
 				//updateForm으로 포워드
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");
-				request.setAttribute("personId", personId);	//forward를 통해 personId를 setAttribute로 보낸다
 				rd.forward(request, response);
 			}
 				break;
