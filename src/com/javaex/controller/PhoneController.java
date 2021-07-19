@@ -31,7 +31,7 @@ public class PhoneController extends HttpServlet {
 				List<PersonVo> personList = phoneDao.getList();
 				
 				//데이터 넣기 --> request 어트리뷰트에 데이터를 넣는다
-				request.setAttribute("pList", personList);
+				request.setAttribute("personList", personList);
 				
 				//html로 표현 --> jsp로 포워드한다
 //				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp"); //해당 주소에서 일을 대신하게 한다(위치를 정확하게 입력해야한다)
